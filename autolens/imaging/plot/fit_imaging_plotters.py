@@ -213,7 +213,8 @@ class FitImagingPlotter(Plotter):
                     visuals_2d=visuals_2d_no_critical_caustic,
                     auto_labels=aplt.AutoLabels(
                         title=title,
-                        filename=filename
+                        filename=filename,
+                        cb_unit='  $[\mathrm{e^{-}}\,\mathrm{s^{-1}}]$'
                     ),
                 )
 
@@ -249,7 +250,8 @@ class FitImagingPlotter(Plotter):
                     visuals_2d=visuals_2d_model_image,
                     auto_labels=aplt.AutoLabels(
                         title=title,
-                        filename=filename
+                        filename=filename,
+                        cb_unit='  $[\mathrm{e^{-}}\,\mathrm{s^{-1}}]$'
                     ),
                 )
 
@@ -494,7 +496,7 @@ class FitImagingPlotter(Plotter):
             self.mat_plot_2d.plot_array(
                 array=self.fit.data,
                 visuals_2d=visuals_2d_no_critical_caustic,
-                auto_labels=AutoLabels(title="Data", filename=f"data{suffix}"),
+                auto_labels=AutoLabels(title="Data", filename=f"data{suffix}", cb_unit='  $[\mathrm{e^{-}}\,\mathrm{s^{-1}}]$')
             )
 
             if use_source_vmax:
@@ -506,7 +508,7 @@ class FitImagingPlotter(Plotter):
                 array=self.fit.noise_map,
                 visuals_2d=visuals_2d_no_critical_caustic,
                 auto_labels=AutoLabels(
-                    title="Noise-Map", filename=f"noise_map{suffix}"
+                    title="Noise-Map", filename=f"noise_map{suffix}", cb_unit='  $[\mathrm{e^{-}}\,\mathrm{s^{-1}}]$'
                 ),
             )
 
@@ -516,7 +518,7 @@ class FitImagingPlotter(Plotter):
                 array=self.fit.signal_to_noise_map,
                 visuals_2d=visuals_2d_no_critical_caustic,
                 auto_labels=AutoLabels(
-                    title="Signal-To-Noise Map", cb_unit=" S/N", filename=f"signal_to_noise_map{suffix}"
+                    title="Signal-To-Noise Map", cb_unit="  S/N", filename=f"signal_to_noise_map{suffix}"
                 ),
             )
 
@@ -529,7 +531,7 @@ class FitImagingPlotter(Plotter):
                 array=self.fit.model_data,
                 visuals_2d=visuals_2d,
                 auto_labels=AutoLabels(
-                    title="Model Image", filename=f"model_image{suffix}"
+                    title="Model Image", filename=f"model_image{suffix}", cb_unit='  $[\mathrm{e^{-}}\,\mathrm{s^{-1}}]$'
                 ),
             )
 
@@ -548,7 +550,7 @@ class FitImagingPlotter(Plotter):
                 array=self.fit.residual_map,
                 visuals_2d=visuals_2d_no_critical_caustic,
                 auto_labels=AutoLabels(
-                    title="Residual Map", filename=f"residual_map{suffix}"
+                    title="Residual Map", filename=f"residual_map{suffix}", cb_unit=''
                 ),
             )
 
@@ -559,8 +561,8 @@ class FitImagingPlotter(Plotter):
                 visuals_2d=visuals_2d_no_critical_caustic,
                 auto_labels=AutoLabels(
                     title="Normalized Residual Map",
-                    cb_unit=r" $\sigma$",
                     filename=f"normalized_residual_map{suffix}",
+                    cb_unit=''
                 ),
             )
 

@@ -1,3 +1,5 @@
+print('Working in autolens source code version')
+
 from autoconf.dictable import from_dict, from_json, output_to_json, to_dict
 from autoarray import preprocess
 from autoarray.dataset.imaging.w_tilde import WTildeImaging

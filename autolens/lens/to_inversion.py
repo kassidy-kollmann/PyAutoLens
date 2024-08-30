@@ -39,6 +39,12 @@ class TracerToInversion(ag.AbstractToInversion):
     @property
     def planes(self):
         return self.tracer.planes
+        
+    @property
+    def has_mapper(self):
+        for galaxies in self.planes:
+            if galaxies.has(cls=aa.Pixelization):
+                return True
 
     @cached_property
     @aa.profile_func
@@ -165,6 +171,10 @@ class TracerToInversion(ag.AbstractToInversion):
 
     @cached_property
     def mapper_galaxy_dict(self) -> Dict[aa.AbstractMapper, ag.Galaxy]:
+    
+        if not self.has_mapper:
+            return {}
+        
         mapper_galaxy_dict = {}
 
         if self.preloads.traced_grids_of_planes_for_inversion is None:

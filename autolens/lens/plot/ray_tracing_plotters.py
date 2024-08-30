@@ -158,7 +158,7 @@ class TracerPlotter(Plotter):
             self.mat_plot_2d.plot_array(
                 array=self.tracer.image_2d_from(grid=self.grid),
                 visuals_2d=self.get_visuals_2d(),
-                auto_labels=aplt.AutoLabels(title="Image", filename="image_2d"),
+                auto_labels=aplt.AutoLabels(title="Image", filename="image_2d", cb_unit='  $[\mathrm{e^{-}}\,\mathrm{s^{-1}}]$'),
             )
 
         if source_plane:
